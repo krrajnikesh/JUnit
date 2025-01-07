@@ -52,4 +52,17 @@ class StudentServiceTest {
 
     }
 
+    @Test
+    void getStudentByIdTest_usingAssertNotNull(){
+        StudentService studentService = new StudentService();
+        Student student = new Student(1, "Ram");
+        studentService.addStudent(student);
+
+        Student actualObject = studentService.getStudentById(1);
+
+//        assertNotNull(actualObject);
+        assertNotNull(actualObject, "Student object should not be null!");
+
+    }
+
 }
