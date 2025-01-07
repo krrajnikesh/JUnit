@@ -21,10 +21,22 @@ class StudentServiceTest {
 
 //        assertTrue(actualResult);
 //        assertTrue(() -> actualResult);
-//        assertTrue(actualResult, "List of students is empty");
-//        assertTrue(() -> actualResult, "List of students is empty");
-//        assertTrue(actualResult, () -> "List of students is empty");
-        assertTrue(() -> actualResult, () -> "List of students is empty");
+//        assertTrue(actualResult, "List of students is not empty");
+//        assertTrue(() -> actualResult, "List of students is not empty");
+//        assertTrue(actualResult, () -> "List of students is not empty");
+        assertTrue(() -> actualResult, () -> "List of students is not empty");
+    }
+
+    @Test
+    void getStudentsTestUsing_usingAssertFalse(){
+        StudentService studentService = new StudentService();
+        List<Student> studentList = studentService.getStudents();
+        Student student = new Student(1, "Ram");
+        studentService.addStudent(student);
+        boolean actualResult = studentList.isEmpty();
+
+//        assertFalse(actualResult);
+        assertFalse(actualResult, "Student List should not be empty!");
     }
 
 }
