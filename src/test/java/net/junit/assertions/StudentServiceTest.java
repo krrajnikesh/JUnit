@@ -65,4 +65,17 @@ class StudentServiceTest {
 
     }
 
+    @Test
+    void getStudentByIdTest_usingAssertEqual(){
+        StudentService studentService = new StudentService();
+        Student student = new Student(1, "Ram");
+        studentService.addStudent(student);
+
+        Student actualObject = studentService.getStudentById(1);
+
+        assertEquals(1, actualObject.getId());
+        assertEquals("Ram", actualObject.getName());
+
+    }
+
 }
