@@ -78,4 +78,23 @@ class StudentServiceTest {
 
     }
 
+    @Test
+    void getStudentNameByDepartmentUsingAssertArrayEquals(){
+        StudentService studentService = new StudentService();
+        Student student = new Student(1, "Ram", "Sci");
+        Student student1 = new Student(1, "Raj", "Sci");
+        Student student2 = new Student(1, "Rohan", "Arts");
+
+        studentService.addStudent(student);
+        studentService.addStudent(student1);
+        studentService.addStudent(student2);
+
+        String[] actualArray = studentService.getStudentNameByDepartment("Sci");
+
+        String[] expectedArray = {"Ram", "Raj"};
+
+        assertArrayEquals(expectedArray, actualArray);
+        assertArrayEquals(expectedArray, actualArray, "Students names are not equal!");
+    }
+
 }

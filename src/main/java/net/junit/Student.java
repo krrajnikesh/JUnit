@@ -1,7 +1,7 @@
 package net.junit;
 
 public class Student {
-    public int id;
+    private int id;
 
     public Student(int id, String name) {
         this.id = id;
@@ -24,5 +24,21 @@ public class Student {
         this.id = id;
     }
 
-    public String name;
+    private String name;
+
+    public Student(int id, String name, String department) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+    }
+
+    private String department;
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 }
