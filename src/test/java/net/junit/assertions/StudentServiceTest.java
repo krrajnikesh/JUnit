@@ -1,6 +1,7 @@
 package net.junit.assertions;
 
 import net.junit.Student;
+import net.junit.StudentNotFoundException;
 import net.junit.StudentService;
 import org.junit.jupiter.api.Test;
 
@@ -95,6 +96,22 @@ class StudentServiceTest {
 
         assertArrayEquals(expectedArray, actualArray);
         assertArrayEquals(expectedArray, actualArray, "Students names are not equal!");
+    }
+
+    @Test
+    void getStudentByNameTestUsingAssertThrows(){
+
+        StudentService studentService = new StudentService();
+        Student student = new Student(1, "Ram", "sci");
+        studentService.addStudent(student);
+
+        assertThrows(StudentNotFoundException.class, () -> {
+            studentService.getStudentByName("Ramesh");
+        });
+
+        assertThrows(StudentNotFoundException.class, () -> {
+            studentService.getStudentByName("Ramesh");
+        }, "StudentNotFoundException should be thrown ");
     }
 
 }
