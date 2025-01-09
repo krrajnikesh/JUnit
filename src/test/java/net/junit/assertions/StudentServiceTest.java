@@ -114,4 +114,22 @@ class StudentServiceTest {
         }, "StudentNotFoundException should be thrown ");
     }
 
+    @Test
+    void getStudentByNameTestUsingAssertThrowsExactly(){
+
+        StudentService studentService = new StudentService();
+        Student student = new Student(1, "Ram", "sci");
+        studentService.addStudent(student);
+
+        StudentNotFoundException actualResult =assertThrowsExactly(StudentNotFoundException.class, () -> {
+                                            studentService.getStudentByName("Ramesh");
+                                        });
+
+        assertEquals("Student not found with name: Ramesh", actualResult.getMessage());
+
+//        assertThrowsExactly(StudentNotFoundException.class, () -> {
+//            studentService.getStudentByName("Ramesh");
+//        }, "StudentNotFoundException should be thrown ");
+    }
+
 }
