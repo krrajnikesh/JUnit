@@ -44,7 +44,7 @@ class StudentServiceTest {
     void getStudentByIdTest_usingAssertNull(){
         StudentService studentService = new StudentService();
         Student student = new Student(1, "Ram");
-        studentService.addStudent(student);
+//        studentService.addStudent(student);
 
         Student actualObject = studentService.getStudentById(1);
 
